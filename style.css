@@ -48,10 +48,11 @@ header {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 header h1 {
   position: absolute;
-  z-index: 3; /* au-dessus du slider et de la bande */
+  z-index: 2; /* au-dessus du slider et de la bande */
   top: 50%;  /* centré verticalement */
   left: 50%; /* centré horizontalement */
   transform: translate(-50%, -50%); /* correction du centrage */
@@ -261,4 +262,5 @@ button:hover {
     padding: 8px 0;
   }
 }
+
 
