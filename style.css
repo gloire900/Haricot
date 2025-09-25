@@ -49,6 +49,26 @@ header {
   top: 0;
   left: 0;
 }
+header h1 {
+  position: absolute;
+  z-index: 3; /* au-dessus du slider et de la bande */
+  top: 50%;  /* centré verticalement */
+  left: 50%; /* centré horizontalement */
+  transform: translate(-50%, -50%); /* correction du centrage */
+  font-size: 3em;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5); /* petit fond noir transparent pour lisibilité */
+  border-radius: 10px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+header h1 span {
+  font-size: 0.6em;
+  font-weight: normal;
+  color: #ffcc00;
+}
 
 .header-slideshow img {
   position: absolute;
@@ -241,3 +261,4 @@ button:hover {
     padding: 8px 0;
   }
 }
+
