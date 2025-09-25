@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acheter - Boutique MAMAN JOLIE</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function envoyerWhatsApp(event) {
+      event.preventDefault();
+      const produit = new URLSearchParams(window.location.search).get("produit");
+      const nom = document.getElementById("nom").value;
+      const numero = document.getElementById("numero").value;
+      const adresse = document.getElementById("adresse").value;
+      const paiement = document.getElementById("paiement").value;
+
+      const message = `Bonjour, je suis ${nom}. Je voudrais acheter ${produit}.
+📍 Adresse: ${adresse}
+📞 Tel: ${numero}
+💰 Paiement: ${paiement}`;
+
+      const url = `https://wa.me/243900000000?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+    🌱 <span>Boutique</span> <strong>MAMAN JOLIE</strong>
+    </div>
+    <div class="header-slideshow">
+      <img src="haricot01.png" alt="Haricot 1">
+      <img src="haricot02.jpg" alt="Haricot 2">
+      <img src="haricot03.jpg" alt="Haricot 3">
+    </div>
+    <h1>🛒 Formulaire d'Achat</h1>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h2>Finalisez votre commande</h2>
+      <form onsubmit="envoyerWhatsApp(event)">
+        <div class="form-group">
+          <label for="nom">👤 Nom complet</label>
+          <input type="text" id="nom" placeholder="Entrez votre nom complet" required>
+        </div>
+
+        <div class="form-group">
+          <label for="numero">📞 Numéro de téléphone</label>
+          <input type="text" id="numero" placeholder="+243 ..." required>
+        </div>
+
+        <div class="form-group">
+          <label for="adresse">📍 Adresse de livraison</label>
+          <input type="text" id="adresse" placeholder="Ville, Commune, Quartier..." required>
+        </div>
+
+        <div class="form-group">
+          <label for="paiement">💳 Moyen de paiement</label>
+          <select id="paiement" required>
+            <option value="">-- Sélectionnez --</option>
+            <option>M-Pesa</option>
+            <option>Orange Money</option>
+            <option>Paiement en présentiel</option>
+          </select>
+        </div>
+
+        <button type="submit">✅ Confirmer l'achat</button>
+        <p class="note">Une conversation WhatsApp sera lancée avec la boutique pour confirmer la livraison.</p>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
